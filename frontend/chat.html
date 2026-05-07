@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MXS Messenger</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="messenger-page">
+  <div class="app-shell">
+    <aside class="rail">
+      <div class="logo small">MXS</div>
+      <button id="profileBtn" title="Профиль">👤</button>
+      <button id="newChatBtn" title="Новый чат">＋</button>
+      <button id="newGroupBtn" title="Новая группа">▦</button>
+      <button id="logoutBtn" title="Выйти">↩</button>
+    </aside>
+
+    <section class="sidebar">
+      <div class="sidebar-head">
+        <div>
+          <h2>MXS</h2>
+          <p id="myNumber">загрузка...</p>
+        </div>
+      </div>
+      <input class="search" id="chatSearch" placeholder="Поиск чатов" />
+
+      <div class="new-chat-box" id="newChatBox">
+        <b>Новый личный чат</b>
+        <input id="targetInput" placeholder="username или телефон" />
+        <button class="btn small-btn" id="createChatBtn">Создать чат</button>
+        <div class="error" id="chatError"></div>
+      </div>
+
+      <div class="new-chat-box" id="newGroupBox">
+        <b>Новая группа</b>
+        <input id="groupTitleInput" placeholder="Название группы" />
+        <textarea id="groupMembersInput" placeholder="Участники через запятую: username, +7999..."></textarea>
+        <button class="btn small-btn" id="createGroupBtn">Создать группу</button>
+        <div class="error" id="groupError"></div>
+      </div>
+
+      <div class="chat-list" id="chatList"></div>
+    </section>
+
+    <main class="chat-pane">
+      <header class="chat-header">
+        <button class="back-btn" id="backBtn">‹</button>
+        <div class="avatar" id="chatAvatar">M</div>
+        <div class="chat-title-block">
+          <h3 id="chatTitle">Выбери чат</h3>
+          <p id="chatSub">или создай новый через +</p>
+          <p class="typing" id="typingLine"></p>
+        </div>
+      </header>
+
+      <section class="messages" id="messages">
+        <div class="empty">Пока нет выбранного чата.</div>
+      </section>
+
+      <footer class="composer">
+        <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.gif,.heic,.heif" hidden />
+        <button class="icon-btn" id="attachBtn" title="Отправить картинку">📎</button>
+        <textarea id="messageInput" placeholder="Сообщение" rows="1"></textarea>
+        <button class="send" id="sendBtn">Отправить</button>
+      </footer>
+    </main>
+
+    <aside class="profile-panel" id="profilePanel">
+      <div class="profile-avatar" id="profileAvatar">M</div>
+      <label>Имя</label>
+      <input id="profileName" />
+      <label>Статус</label>
+      <input id="profileStatus" placeholder="online / занят / в игре" />
+      <label>О себе</label>
+      <textarea id="profileBio" rows="4"></textarea>
+      <label>Ссылка на аватарку</label>
+      <input id="profileAvatarUrl" placeholder="https://..." />
+      <label>MXS-номер</label>
+      <input id="profileNumber" readonly />
+      <button class="btn" id="saveProfileBtn">Сохранить профиль</button>
+      <div class="error" id="profileError"></div>
+    </aside>
+  </div>
+
+  <div class="image-modal" id="imageModal">
+    <button class="modal-close" id="modalClose">×</button>
+    <img id="modalImage" alt="MXS image" />
+    <a id="modalDownload" class="btn" download>Скачать</a>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
